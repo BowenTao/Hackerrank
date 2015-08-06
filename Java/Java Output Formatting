@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        for (int j=0;j<32;j++){
+                System.out.print("=");
+        }
+        System.out.println();
+        for (int i=0;i<3;i++){
+            String[] s=sc.nextLine().split(" ");
+            System.out.printf("%-15s%03d%n",s[0].trim(),Integer.parseInt(s[1].trim()));
+        }
+        for (int j=0;j<32;j++){
+                System.out.print("=");
+        }
+    }
+}
