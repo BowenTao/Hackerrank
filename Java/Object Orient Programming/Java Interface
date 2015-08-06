@@ -1,0 +1,13 @@
+class MyCalculator implements AdvancedArithmetic{
+    public int divisorSum(int n){
+        int sum=0;
+        int s=1;
+        while (s<=n){
+            if (n%s==0){
+                sum+=s;
+            }
+            s++;
+        }
+        return sum;
+    }
+}
