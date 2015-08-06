@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        sc.nextLine();
+        while (sc.hasNextLine()){
+            String[] s=sc.nextLine().split(" ");
+            int sum=Integer.parseInt(s[0]);
+            for (int j=0;j<Integer.parseInt(s[2].trim());j++){
+                sum+=(int)(Math.pow(2,j)*Integer.parseInt(s[1].trim()));
+                System.out.print(sum);
+                if (j<Integer.parseInt(s[2].trim())-1){
+                   System.out.print(" "); 
+                }
+            }
+            System.out.println();
+        }
+    }
+}
