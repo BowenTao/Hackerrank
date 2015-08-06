@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int n=Integer.parseInt(sc.nextLine());
+        ArrayList<Integer>[] list=new ArrayList[n];
+        for (int i=0;i<n;i++){
+            list[i]=new ArrayList<Integer>();
+        }
+        for (int i=0;i<n;i++){
+            String[] s=sc.nextLine().split("\\s");
+            for (int j=0;j<s.length;j++){
+                list[i].add(Integer.parseInt(s[j]));
+            }
+        }
+        int n1=Integer.parseInt(sc.nextLine());
+        for (int i=0;i<n1;i++){
+            String[] s=sc.nextLine().split("\\s");
+            if (Integer.parseInt(s[0])>n || Integer.parseInt(s[1])>list[Integer.parseInt(s[0])-1].size()-1){
+                System.out.println("ERROR!");
+            }else{
+                System.out.println(list[Integer.parseInt(s[0])-1].get(Integer.parseInt(s[1])));
+            }
+        }
+    }
+}
