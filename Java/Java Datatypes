@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         Scanner input = new Scanner(System.in);
+         input.nextLine();
+         while (input.hasNextLine()) {
+            BigInteger number = new BigInteger(input.nextLine().trim());
+            int bitLength = number.bitLength();
+            int len = bitLength / 8;
+            StringBuilder output = new StringBuilder(number.toString() + " can be fitted in:\n");
+            switch (len) {
+                case 0:
+                    output.append("* byte\n");
+                case 1:
+                    output.append("* short\n");
+                case 2:
+                case 3:
+                    output.append("* int\n");
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    output.append("* long\n");
+                    System.out.print(output);
+                    break;
+                default:
+                    System.out.println(number.toString() + " can't be fitted anywhere.");
+            }
+        }
+    }
+}
