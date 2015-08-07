@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   // Complete the program
+    string a;
+    cin>>a;
+    string b;
+    cin>>b;
+    cout<<a.size()<<" "<<b.size()<<endl;
+    cout<<a+b<<endl;
+    string A,B;
+    for (int i=1;i<b.size();i++){
+        A+=b[i];
+    }
+    A=a[0]+A;
+    for (int i=1;i<a.size();i++){
+        B+=a[i];
+    }
+    B=b[0]+B;
+    cout<<B<<" "<<A<<endl;
+    return 0;
+}
