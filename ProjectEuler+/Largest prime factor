@@ -27,6 +27,5 @@ while(t--){
     }
     printf("%lld\n",m);
 }
-
     return 0;
 }
