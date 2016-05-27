@@ -1,0 +1,39 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int T,N;
+    cin>>T;
+    for (int i=0;i<T;i++){
+        cin>>N;
+        long max=0;
+        for (int n=100;n<=999;n++){
+            for (int m=n;m<=999;m++){
+                long r=m*n;
+                if (r>=N){
+                    break;
+                }
+                long v=r;
+                long res=0;
+                while (v){
+                    res*=10;
+                    res+=v%10;
+                    v/=10;
+                }
+                if (r==res){
+                    if (max<r){
+                        max=r;
+                    }
+                }
+            }
+        }
+        cout<<max<<endl;
+    }
+    return 0;
+}
