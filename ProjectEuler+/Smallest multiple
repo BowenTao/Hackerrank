@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] a={1,2,3,5,7,11,13,17,19,23,27,29,31,37};
+        for (int i=0;i<n;i++){
+            int j=sc.nextInt();
+            int res=1;
+            for (int x=1;x<=j;x++){
+                for (int k=1;k<=6;k++){
+                    if (Math.pow(a[x],k)>j){
+                        res*=Math.pow(a[x],k-1);
+                        break;
+                    }
+                }
+            }
+            System.out.println(res);
+        }
+    }
+}
