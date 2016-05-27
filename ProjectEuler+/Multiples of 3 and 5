@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int n=Integer.parseInt(sc.nextLine());
+        for (int i=0;i<n;i++){
+            BigInteger sum=BigInteger.ZERO;
+            long a1=Long.parseLong(sc.nextLine());
+        	BigInteger a=new BigInteger(getSum(a1,3));
+        	BigInteger b=new BigInteger(getSum(a1,5));
+        	BigInteger c=new BigInteger(getSum(a1,15));
+            sum=sum.add(a);
+            sum=sum.add(b);
+            sum=sum.subtract(c);
+            System.out.println(sum);
+        }
+		
+	}	
+	
+	public static String getSum(long n,int begin){
+        long last=0;
+        for (long i=n-begin;i<n;i++){
+            if (i%begin==0){
+                last=i;
+                break;
+            }
+        }
+        long numbers=1+(last-begin)/begin;
+        //System.out.println(numbers);
+        long result=numbers*(begin+last)/2;
+        return String.valueOf(result);
+    }
+    
+}
