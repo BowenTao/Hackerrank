@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        String T=sc.nextLine().trim();
+        int t=Integer.parseInt(T);
+        for (int i=0;i<t;i++){
+            String NK=sc.nextLine();
+            int k=Integer.parseInt(NK.substring(NK.length()-1,NK.length()));
+            String s=sc.nextLine();
+            int productL=0;
+            for (int j=0;j<s.length()-k;j++){
+                int product=1;
+                for (int a=j;a<j+k;a++){
+                    product*=Integer.parseInt(s.substring(a,a+1));
+                }
+                if (productL<product){
+                    productL=product;
+                }
+            }
+            System.out.println(productL);
+        }
+    }
+}
