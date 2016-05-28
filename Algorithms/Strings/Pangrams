@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        if (checker(s)){
+            System.out.println("pangram");
+        }else{
+            System.out.println("not pangram");
+        }
+    }
+    
+    public static boolean checker(String s){
+        for (char a='A';a<='Z';a++){
+            if (s.indexOf(a)<0 && s.indexOf((char)(a+32))<0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
