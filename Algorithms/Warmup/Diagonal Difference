@@ -1,0 +1,30 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n,left=0,right=0;
+    cin>>n;
+    for (int i=0;i<n;i++){
+        for (int j=0;j<n;j++){
+            int input=0;
+            cin>>input;
+            //cout<<input<<"!";
+            if (i==j){
+                left+=input;
+                //cout<<input<<"!";
+            }
+            if ((i+j)==(n-1)){
+                right+=input;
+                //cout<<input<<"!";
+            }
+        }
+    }
+    cout<<abs(left-right)<<endl;
+    return 0;
+}
