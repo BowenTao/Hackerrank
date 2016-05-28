@@ -1,0 +1,29 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int T,N;
+    cin>>T;
+    for (int t=0;t<T;t++){
+        cin>>N;
+        long value=N;
+        int count=0;
+        while(N){
+            int n=N%10;
+            N/=10;
+            if (n!=0){
+                if (value%n==0){
+                    count++;  
+                }  
+            }
+        }
+        cout<<count<<endl;
+    }
+    return 0;
+}
