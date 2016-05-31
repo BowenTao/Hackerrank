@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        String[] s1=sc.nextLine().split(" ");
+        int n=Integer.parseInt(s1[0]);
+        int m=Integer.parseInt(s1[1]);
+        String[] s2=sc.nextLine().split(" ");
+        int[] a=new int[s2.length];
+        for (int i=0;i<a.length;i++){
+            a[i]=Integer.parseInt(s2[i].trim());
+        }
+        System.out.println(coinChange(a,n,m));
+    }
+    
+    public static BigInteger coinChange(int[] A, int n, int m){
+        BigInteger[][] t=new BigInteger[n+1][m];
+        BigInteger a,b;
+        for (int i=0;i<m;i++){
+            t[0][i]=BigInteger.ONE;
+        }
+        for (int i=1;i<=n;i++){
+            for (int j=0;j<m;j++){
+                if (i-A[j]>=0){
+                   a=t[i-A[j]][j]; 
+                }else{
+                    a=BigInteger.ZERO;
+                }
+                if (j>=1){
+                    b=t[i][j-1];
+                }else{
+                    b=BigInteger.ZERO;
+                }
+                t[i][j]=a.add(b);
+            }
+        }
+        return t[n][m-1];
+    }
+}
