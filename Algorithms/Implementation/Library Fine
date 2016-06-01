@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int a[]=new int[3];
+        int e[]=new int[3];
+        for (int i=0;i<3;i++){
+            a[i]=sc.nextInt();
+        }
+        sc.nextLine();
+        for (int i=0;i<3;i++){
+            e[i]=sc.nextInt();
+        }
+        if (a[2]==e[2] || a[2]<e[2]){
+            if (a[2]==e[2]){
+                if (a[1]==e[1] || a[1]<e[1]){
+                    if (a[1]==e[1]){
+                        if (a[0]<=e[0]){
+                            System.out.println(0);
+                        }else{
+                            System.out.println(15*(a[0]-e[0]));
+                        }
+                    }
+                    if (a[1]<e[1]){
+                        System.out.println(0);
+                    }
+                }else{
+                    System.out.println(500*(a[1]-e[1]));
+                }
+            }
+            if (a[2]<e[2]){
+                System.out.println(0);
+            }
+        }else{
+            System.out.println(10000);
+        }
+    }
+}
