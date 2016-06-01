@@ -1,0 +1,33 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <map>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int t;
+    cin>>t;
+    for (int i=0;i<t;i++){
+        int m;
+        cin>>m;
+        int n;
+        cin>>n;
+        //getline();
+        int c[n];
+        for (int j=0;j<n;j++){
+            cin>>c[j];
+        }
+        for (int k1=0;k1<n;k1++){
+            for (int k2=k1+1;k2<n;k2++){
+                if (c[k1]+c[k2]==m){
+                    cout<<k1+1<<" "<<k2+1<<endl;
+                }
+            }
+        }
+    }
+    return 0;
+}
