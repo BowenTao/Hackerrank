@@ -1,0 +1,42 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int t;
+    cin>>t;
+    for (int i=0;i<t;i++){
+        int n;
+        cin>>n;
+        int a[n];
+        for (int j=0;j<n;j++){
+            cin>>a[j];
+            //cout<<a[j]<<" ";
+        } 
+        int l=0;int r=n-1;
+        int sum=0;
+        while (l!=r){
+            if (sum>=0){
+                sum-=a[r];
+                r--;
+            }else{
+                sum+=a[l];
+                l++;
+            }
+        }
+        
+        //cout<<l<<" "<<r<<endl;
+        if (sum!=0){
+            cout<<"NO"<<endl;
+        }else{
+            cout<<"YES"<<endl;
+        }
+        
+    }
+    return 0;
+}
