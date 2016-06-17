@@ -1,0 +1,45 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int countDigits(long long x){
+    int count=0;
+    while (x){
+        x/=10;
+        count++;
+    }
+    return count;
+}
+
+int splitDigits(int digits){
+    int res=1;
+    while (digits){
+        res*=10;
+        digits--;
+    }
+    return res;
+}
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int b,l;
+    cin>>b;
+    cin>>l;
+    bool flag=1;
+    for (int i=b;i<=l;i++){
+        long long res=(long long)i*i;
+        int digits=countDigits(res);
+        digits-=digits/2;
+        if ((res/splitDigits(digits))+(res%splitDigits(digits))==i){
+            cout<<i<<" ";
+            flag=0;
+        }
+    }
+    if (flag){
+        cout<<"INVALID RANGE"<<endl;
+    }
+    return 0;
+}
